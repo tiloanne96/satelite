@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['postgresql_host'] %>
+  port: <%= ENV['postgresql_port']%>
+  username: <%= ENV['postgresql_user'] %>
+  password: <%= ENV['postgresql_password'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: satelite_development
+
+test:
+  <<: *default
+  database: satelite_test
+
+production:
+  <<: *default
+  database: satelite_production
+  username: satelite
+  password: <%= ENV['SATELITE_DATABASE_PASSWORD'] %>
