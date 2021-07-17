@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2020_11_12_011355) do
 
   create_table "services", force: :cascade do |t|
     t.string "name"
-    t.string "status"
-    t.string "version"
+    t.string "status", default: "alpha"
+    t.string "version", default: "0.0.1"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
